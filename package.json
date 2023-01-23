@@ -12,14 +12,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/saeraa/mellankalix.git"
+		"url": "git+https://github.com/saeraa/bio-ssr.git"
 	},
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/saeraa/mellankalix/issues"
+		"url": "https://github.com/saeraa/bio-ssr/issues"
 	},
-	"homepage": "https://github.com/saeraa/mellankalix#readme",
+	"homepage": "https://github.com/saeraa/bio-ssr#readme",
 	"devDependencies": {
 		"nodemon": "^2.0.20",
 		"sass": "^1.57.0"
