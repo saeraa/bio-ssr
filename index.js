@@ -1,30 +1,23 @@
 import express from "express";
 import { marked } from "marked";
 import expressLayouts from "express-ejs-layouts";
-// import { engine } from "ejs";
+import { loadMovie, loadMovies } from "./static/js/movies.js";
 
 const app = express();
 
-// app.engine(
-// 	"ejs",
-// 	engine({
-// 		helpers: {
-// 			markdown: (md) => marked(md)
-// 		}
-// 	})
-// );
 app.set("view engine", "ejs");
 app.set("layout extractScripts", true);
 app.set("layout extractStyles", true);
 
 app.use(expressLayouts);
-//app.set("views", "./views");
 
 app.get("/", async (req, res) => {
-	//const movies = await loadMovies();
+	const movies = await loadMovies();
+
 	res.render("pages/home", {
-		title: "Tomtens Biograf!"
-	}); //, { movies }
+		title: "Tomtens Biograf!",
+		movies
+	});
 });
 
 const VIEWS = [
@@ -83,28 +76,26 @@ VIEWS.forEach((view) => {
 
 app.get("/movie/:movieId", async (req, res) => {
 	const movie = await loadMovie(req.params.movieId);
-	if (movie) {
-		res.render("movie", { movie });
-	} else {
-		res.status(404).render("404");
+	if (movie.err) {
+		res.status(404).render("pages/404", {
+			title: "OH NOES"
+		});
+	} else if (movie) {
+		res.render("pages/movie", {
+			id: movie.data.id,
+			movieDetails: movie.data.attributes,
+			title: movie.data.attributes.title,
+			marked
+		});
 	}
 });
 
-/* 
-/open
-/ticketInfo
-/newsletter
-/giftcertificate
-*/
-// app.get("/movies/:movieId", async (req, res) => {
-// 	//const movie = await loadMovie(req.params.movieId);
-// 	if (movie) {
-// 		res.render("pages/movie"); //, { movie }
-// 	} else {
-// 		res.status(404).render("404");
-// 	}
-// });
-
 app.use("/", express.static("./static"));
+
+app.get("/**", async (req, res) => {
+	res.status(404).render("pages/404", {
+		title: "404"
+	});
+});
 
 app.listen(3050);

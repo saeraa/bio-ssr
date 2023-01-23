@@ -41,7 +41,21 @@
 	<section class="current-movies">
 		<h2 class="current-movies-header">På bion just nu</h2>
 		<ul class="current-movies-list">
-			<p>Laddar filmer ...</p>
+			<% movies.data.forEach(function(movie) { %>
+
+			<a href="movie/<%= movie.id %>">
+				<li class="current-movies-card">
+					<img
+						src="<%= movie.attributes.image.url %>"
+						alt="<%= movie.attributes.title %> Poster"
+						class="current-movies-card-image"
+					/>
+					<h3 class="current-movies-card-title">
+						<%- movie.attributes.title %>
+					</h3>
+				</li></a
+			>
+			<% }); %>
 		</ul>
 	</section>
 

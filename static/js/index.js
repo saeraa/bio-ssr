@@ -1,5 +1,3 @@
-console.log("hi");
-
 import { filterMovies } from "./filterMovies.js";
 
 const displayRandomMovieList = async () => {
@@ -18,4 +16,4 @@ const displayRandomMovieList = async () => {
 };
 
 const currentMoviesListEl = document.querySelector(".current-movies-list");
-window.addEventListener("load", displayRandomMovieList);
+//window.addEventListener("load", displayRandomMovieList);
