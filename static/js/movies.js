@@ -11,7 +11,6 @@ export async function loadMovies() {
 }
 
 export async function loadMovie(id) {
-	console.log(id);
 	try {
 		const res = await axios.request({
 			url: API_BASE + "/movies/" + id,
@@ -21,10 +20,4 @@ export async function loadMovie(id) {
 	} catch (err) {
 		return { err };
 	}
-	console.log(res.response.status);
-	if (res.data.error.status === 404 || res.data.error.status === 500) {
-		return { statusCode: res.data.error.status };
-	}
-
-	// return { boo: "HI" };
 }
