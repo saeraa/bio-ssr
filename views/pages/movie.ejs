@@ -1,0 +1,22 @@
+<section class="movie-details">
+	<div>
+		<h1 class="movie-title"><%= movieDetails.title %></h1>
+		<!-- <p class="movie-description"> -->
+		<%- marked(movieDetails.intro) %>
+		<!-- </p> -->
+		<hr />
+		<!-- <p class="movie-genres">${genreString}</p>
+		<p class="movie-info">
+			<strong>Regi: </strong> <span class="movie-director">${director}</span>
+			<strong>Skådespelare: </strong>
+			<span class="movie-actors">${actorsString}</span> <strong>Land: </strong>
+			<span class="movie-country">${land} (${year})</span>
+			<strong>Åldersgräns: </strong> <span class="movie-age">${ageLimit}</span>
+		</p> -->
+	</div>
+	<img
+		src="<%= movieDetails.image.url %>"
+		alt="<%= movieDetails.title %>"
+		class="movie-poster"
+	/>
+</section>

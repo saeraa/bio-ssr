@@ -618,7 +618,7 @@ header .header-list.open li img {
   text-transform: uppercase;
   font-weight: 700;
 }
-.movie-details .movie-description {
+.movie-details .movie-title + p {
   padding: 1rem;
 }
 .movie-details .movie-info {
@@ -1519,6 +1519,59 @@ input[type=password]:focus {
     display: none;
   }
 }
+.bar-bistro-main {
+  background-color: #edf2f4;
+  grid-template-columns: auto !important;
+  width: 95%;
+  padding: 3rem;
+  margin-top: 2rem;
+}
+.bar-bistro-main a {
+  margin-top: 1.5rem;
+}
+.bar-bistro-main ul {
+  list-style: none;
+}
+.bar-bistro-main li {
+  margin-top: 1rem;
+}
+.bar-bistro-main h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+.bar-bistro-main h3 {
+  margin-left: 0;
+}
+.bar-bistro-main p {
+  margin: 0;
+}
+.bar-bistro-main span {
+  font-weight: 500;
+}
+@media screen and (min-width: 500px) {
+  .bar-bistro-main {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 1001px) {
+  .bar-bistro-main {
+    width: 80%;
+  }
+}
+
+.error-page {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.error-page img {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
 :root {
   background-color: #d9d9d9;
   color: #161a1d;

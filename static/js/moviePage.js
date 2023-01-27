@@ -102,5 +102,5 @@ const hashChange = async () => {
 	movieEl.innerHTML = htmlString;
 };
 
-window.addEventListener("hashchange", hashChange);
-window.addEventListener("load", hashChange);
+//window.addEventListener("hashchange", hashChange);
+//window.addEventListener("load", hashChange);

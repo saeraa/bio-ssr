@@ -1,12 +1,12 @@
-@import "./variables.scss"; 
-@import "./movieCard.scss"; 
-@import "./asideShowTimes.scss"; 
-@import "./footer.scss"; 
-@import "./movieList.scss"; 
-@import "./header.scss"; 
-@import "./movieDetails.scss"; 
+@import "./variables.scss";
+@import "./movieCard.scss";
+@import "./asideShowTimes.scss";
+@import "./footer.scss";
+@import "./movieList.scss";
+@import "./header.scss";
+@import "./movieDetails.scss";
 @import "./search.scss";
-@import "./newsletter.scss"; 
+@import "./newsletter.scss";
 @import "./carousel.scss";
 @import "./about.scss";
 @import "./comingPremieres.scss";
@@ -15,6 +15,7 @@
 @import "./navMenu.scss";
 @import "./giftcertificate.scss";
 @import "./barBistro.scss";
+@import "./error";
 
 :root {
 	background-color: $c-gray-dark;
@@ -61,7 +62,7 @@ a {
 .placeholder {
 	text-align: center;
 	grid-column: 1 / -1;
-	
+
 	p {
 		margin: auto;
 	}
@@ -74,12 +75,12 @@ a {
 		display: block;
 		margin: auto;
 		margin-top: 2rem;
-        background-color: $c-red-dark;
-        border-radius: 10px;
-        padding: 8px;
-        color: $c-yellow;
-        border: 1px soild black;
-        text-align: center;
-        text-decoration: none;
+		background-color: $c-red-dark;
+		border-radius: 10px;
+		padding: 8px;
+		color: $c-yellow;
+		border: 1px soild black;
+		text-align: center;
+		text-decoration: none;
 	}
 }
