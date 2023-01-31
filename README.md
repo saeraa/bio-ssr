@@ -5,7 +5,7 @@ API DOCUMENTATION
 ./api/screenings
 
 GET: Get all the screenings
-———————————————————————
+\n———————————————————————
 
 ./api/movies/{id}
 
