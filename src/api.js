@@ -13,9 +13,25 @@ apiRouter.get("/screenings", async (req,res)=> {
 		data = await axios.get("https://plankton-app-xhkom.ondigitalocean.app/api/screenings");
 		data = data.data.data;
 		data.forEach(element => {
-			console.log(element.attributes)
+			const day = element.attributes.start_time.split("T")[0];
+			const currentDate = new Date(day)
+			const startPoint =  new Date(Date.now() + 86400000);
+			startPoint.setHours(0)
+			startPoint.setMinutes(0)
+			startPoint.setSeconds(0)
+			startPoint.setMilliseconds(0)
+			
+			const endPoint = new Date(Date.now() + 518400000);
+			endPoint.setHours(0)
+			endPoint.setMinutes(0)
+			endPoint.setSeconds(0)
+			endPoint.setMilliseconds(0)
+		
+			if(currentDate.getTime() > startPoint.getTime() && currentDate.getTime() < endPoint.getTime()) {
+				console.log(element.attributes.start_time)
+			}
+		
 		});
-		console.log(Date.now())
 	} catch(error) {
 		console.log(error)
 	}
