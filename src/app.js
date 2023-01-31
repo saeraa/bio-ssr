@@ -1,7 +1,7 @@
 import express from "express";
 import { marked } from "marked";
 import expressLayouts from "express-ejs-layouts";
-import { loadMovie, loadMovies } from "./static/js/movies.js";
+import { loadMovie, loadMovies } from "../static/js/movies.js";
 
 const app = express();
 
