@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"start": "nodemon .",
-		"sass": "sass --no-source-map scss/main.scss static/main.css",
+		"start": "nodemon ./src/index.js",
+		"build": "sass --no-source-map scss/main.scss static/main.css",
 		"watch": "sass --no-source-map --watch scss/main.scss static/main.css",
 		"test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
 	},
