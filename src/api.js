@@ -5,3 +5,6 @@ apiRouter = express.Router();
 apiRouter.get("/movies/:id", (req, res) => {
   res.send(movie with id of req.param.id)
 })
+
+
+export default apiRouter;
