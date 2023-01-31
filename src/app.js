@@ -2,6 +2,7 @@ import express from "express";
 import { marked } from "marked";
 import expressLayouts from "express-ejs-layouts";
 import { loadMovie, loadMovies } from "../static/js/movies.js";
+import apiRouter from "api.js";
 
 const app = express();
 
@@ -10,6 +11,8 @@ app.set("layout extractScripts", true);
 app.set("layout extractStyles", true);
 
 app.use(expressLayouts);
+
+app.use("/api", apiRouter);
 
 app.get("/", async (req, res) => {
 	const movies = await loadMovies();
