@@ -1,10 +1,9 @@
 import express from "express";
 
-apiRouter = express.Router();
+const apiRouter = express.Router();
 
 apiRouter.get("/movies/:id", (req, res) => {
-  res.send(movie with id of req.param.id)
-})
-
+	res.send(`movie with id of ${req.params.id}`);
+});
 
 export default apiRouter;
