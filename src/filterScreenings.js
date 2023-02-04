@@ -1,5 +1,5 @@
 export default function filterScreenings(data) {
-    const filteredScreenings = [];
+    let filteredScreenings = [];
 		data.forEach(screening => {
 			const currentScreeningDate = new Date(screening.attributes.start_time)
 			const startingPoint =  new Date(Date.now() + 86400000);
@@ -18,22 +18,31 @@ export default function filterScreenings(data) {
 				filteredScreenings.push(screening);
 			}
 
-			filteredScreenings.sort(function(a,b) {
-				const first = new Date(a.attributes.start_time).getTime();
-				const second = new Date(b.attributes.start_time).getTime();
-				if(first < second) {
-					return -1;
-				} 
-				else if (first > second ){
-					return 1;
-				}
-				return 0;
-			});
-			
-			if(filteredScreenings.length > 10) {
-				filteredScreenings.splice(10);
-			}
 		
 		});
+
+        filteredScreenings.sort(function(a,b) {
+            const first = new Date(a.attributes.start_time).getTime();
+            const second = new Date(b.attributes.start_time).getTime();
+            if(first < second) {
+                return -1;
+            } 
+            else if (first > second ){
+                return 1;
+            }
+            return 0;
+        });
+
+        if(filteredScreenings.length > 10) {
+            if(filteredScreenings[9].attributes.start_time.split("T")[0] != filteredScreenings[10].attributes.start_time.split("T")[0]) {
+                filteredScreenings.splice(10);
+            } else {
+                filteredScreenings = filteredScreenings.filter((s)=> {
+                    return s.attributes.start_time.split("T")[0] != filteredScreenings[9].attributes.start_time.split("T")[0];
+                })
+            }
+            //let currentDay = filteredScreenings[0].attributes.start_time.split("T")[0];
+        }
+        console.log(filteredScreenings.length)
         return filteredScreenings;
 }

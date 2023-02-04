@@ -14,7 +14,7 @@ apiRouter.get("/screenings", async (req,res)=> {
 	try {
 		data = await loadScreenings();
 		filteredScreenings = filterScreenings(data);
-		console.log(filteredScreenings)
+		//console.log(filteredScreenings)
 	} catch(error) {
 		console.log(error)
 	}
