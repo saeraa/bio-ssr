@@ -37,12 +37,11 @@ export default function filterScreenings(data) {
             if(filteredScreenings[9].attributes.start_time.split("T")[0] != filteredScreenings[10].attributes.start_time.split("T")[0]) {
                 filteredScreenings.splice(10);
             } else {
+                filteredScreenings.splice(11);
                 filteredScreenings = filteredScreenings.filter((s)=> {
                     return s.attributes.start_time.split("T")[0] != filteredScreenings[9].attributes.start_time.split("T")[0];
                 })
             }
-            //let currentDay = filteredScreenings[0].attributes.start_time.split("T")[0];
         }
-        console.log(filteredScreenings.length)
         return filteredScreenings;
 }
