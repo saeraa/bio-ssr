@@ -1,7 +1,9 @@
 import { filterMovies } from './filterMovies.js'
 
 async function init() {
-    const database = await filterMovies("showtimes");
+    //const database = await filterMovies("showtimes");
+    let database = await fetch(window.location.origin + "/api/screenings");
+    database =  await database.json();
     sortByTime(database);
 }
 
@@ -14,7 +16,7 @@ function sortByTime (database) {
 
     // Goes through all showtimes, converts the dates to readable format, if date is uniqe put in dates array
     database.forEach(data => {
-        let day = new Date(data.day);
+        let day = new Date(data.attributes.start_time);
         data.day = (day.toLocaleDateString("sv-SE", {
             weekday: "short",
             day: "numeric",
@@ -38,28 +40,28 @@ function sortByTime (database) {
                 days[i].push(data);
             }
         }
-    })    
+    }) 
 
     // Removes the ":" from time so it can be sorted in the next step
-    days.forEach(day => {
-        day.forEach(showtime => {
-            showtime.time = showtime.time.slice(0, 2) + showtime.time.slice(3, 5);    
-        })
-    })
+    // days.forEach(day => {
+    //     day.forEach(showtime => {
+    //         showtime.time = showtime.time.slice(0, 2) + showtime.time.slice(3, 5);    
+    //     })
+    // })
     
-    // Sorts on time
-    days.forEach(day => {
-        day.sort((a, b) => {return a.time - b.time});
-    })
+    // // Sorts on time
+    // days.forEach(day => {
+    //     day.sort((a, b) => {return a.time - b.time});
+    // })
     
-    // Adds the ":" back in time and converts dates to readable format
-    days.forEach(date => {
-        date.forEach(showtime => {
-            showtime.time = showtime.time.slice(0, 2) + ":" + showtime.time.slice(2, 4);
-            let day = new Date(showtime.day);
-            showtime.day = day.toDateString();
-        })
-    })
+    // // Adds the ":" back in time and converts dates to readable format
+    // days.forEach(date => {
+    //     date.forEach(showtime => {
+    //         showtime.time = showtime.time.slice(0, 2) + ":" + showtime.time.slice(2, 4);
+    //         let day = new Date(showtime.day);
+    //         showtime.day = day.toDateString();
+    //     })
+    // })
 
     // Send the sorted array of arrays to create HTML for it
     createHTML(days, dates);
@@ -87,7 +89,14 @@ function createHTML(days, dates) {
             const a = document.createElement("a");
 
             a.href = "./movie.html#" + days[i][j].index;
-            a.innerText = `${days[i][j].time} - ${days[i][j].movie.title}`
+            const currentDate = new Date(days[i][j].attributes.start_time);
+            const hours = currentDate.getHours() - 1;
+            let minutes = currentDate.getMinutes();
+            
+            if(minutes == 0) {
+                minutes = minutes.toString().padEnd(2,"0");
+            }
+            a.innerText = `${hours}:${minutes} - ${days[i][j].attributes.movie.data.attributes.title}`
             li.appendChild(a);
             ul.appendChild(li);
         }

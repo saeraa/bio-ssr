@@ -14,11 +14,11 @@ apiRouter.get("/screenings", async (req,res)=> {
 	try {
 		data = await loadScreenings();
 		filteredScreenings = filterScreenings(data);
-		//console.log(filteredScreenings)
+		console.log(filteredScreenings[0].attributes.movie)
+		res.json(filteredScreenings);
 	} catch(error) {
 		console.log(error)
 	}
-	res.send("Hey")
 });
 
 export default apiRouter;
