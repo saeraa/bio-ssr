@@ -1,6 +1,6 @@
 import express from "express";
 import loadScreenings from "./loadScreenings.js";
-import filterScreenings from "./filterScreenings.js";
+import {filterScreenings} from "./filterScreenings.js";
 
 const apiRouter = express.Router();
 

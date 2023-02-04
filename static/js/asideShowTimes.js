@@ -1,7 +1,4 @@
-import { filterMovies } from './filterMovies.js'
-
 async function init() {
-    //const database = await filterMovies("showtimes");
     let database = await fetch(window.location.origin + "/api/screenings");
     database =  await database.json();
     sortByTime(database);
