@@ -13,5 +13,5 @@ export async function postReview(req, res) {
   };
   // i am going to use this variable in the second part of the assignment.
   const response = await fetch(API_BASE, method);
-  res.status(200);
+  res.send().status(200);
 }
