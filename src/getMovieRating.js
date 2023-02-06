@@ -15,7 +15,7 @@ export default async function getMovieRating(movieID, imdbID, reviewSource1 = lo
 		return (rating /= reviewList.length);
 
 	} else {
-
-		return await reviewSource2;
+		// Because IMDB rating is 0-10 and we want a 0-5 rating, to be consistent with our own rating 
+		return await reviewSource2 / 2;
 	}
 }

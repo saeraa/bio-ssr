@@ -11,8 +11,8 @@ export async function loadIMDBMovieRating (id, query = "&i=") {
         return data;
 
     } else {
-        // Because IMDB rating is 0-10 and we want a 0-5 rating, to be consistent with our own rating 
-        return data.imdbRating / 2;
+        
+        return data.imdbRating;
     }
     
 }
