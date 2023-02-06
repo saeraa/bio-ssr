@@ -1,4 +1,4 @@
-import { loadMovie } from "../static/js/movies";
+import { loadMovie } from "../src/movies";
 import request from "supertest";
 import app from "../src/app.js";
 

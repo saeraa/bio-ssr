@@ -42,7 +42,6 @@ function disableButtons() {
 
 async function onPageLoad() {
 	const reviews = await getReviewsFromAPI(movieID);
-	console.log(reviews);
 	totalPages = reviews.pages.pageCount;
 	disableButtons();
 	insertReviewsInHTML(reviews);
@@ -91,9 +90,7 @@ function renderReview(review) {
 }
 
 async function getReviewsFromAPI(movieID, page = currentPage) {
-	const response = await fetch(
-		`http://localhost:5080/api/movies/${movieID}/reviews?page=${page}`
-	);
+	const response = await fetch(`/api/movies/${movieID}/reviews?page=${page}`);
 	const data = response.json();
 	return data;
 }
