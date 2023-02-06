@@ -651,20 +651,26 @@ header .header-list.open li img {
   margin-inline: auto;
   margin-top: 3rem;
 }
-.movie-details .movie-rating {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.3rem;
-  color: #9e2a2b;
-  grid-column: 1;
-  grid-row: 2;
-  display: flexbox;
+.movie-details .movie-rating-hats {
+  list-style-type: none;
+  display: flex;
+  padding-bottom: 0.2rem;
+  justify-content: center;
 }
-.movie-details .movie-rating-img {
-  grid-column: 1;
-  grid-row: 2;
-  margin-top: -0.7rem;
-  margin-left: 55%;
+.movie-details .movie-rating-hats .hat-fill, .movie-details .movie-rating-hats .hat-halffill, .movie-details .movie-rating-hats .hat-nofill {
+  width: 25px;
+  height: 25px;
+  background-size: 100%;
+  display: block;
+}
+.movie-details .movie-rating-hats .hat-nofill {
+  background-image: url("/img/hat-nofill.png");
+}
+.movie-details .movie-rating-hats .hat-fill {
+  background-image: url("/img/hat-fill.png");
+}
+.movie-details .movie-rating-hats .hat-halffill {
+  background-image: url("/img/hat-halffill.png");
 }
 .movie-details .movie-showtimes {
   padding-bottom: 2rem;
@@ -1585,28 +1591,6 @@ input[type=password]:focus {
 .error-page img {
   margin: 0 auto;
   max-width: 500px;
-}
-
-.movie-rating-hats {
-  list-style-type: none;
-  display: flex;
-  padding-bottom: 0.2rem;
-  justify-content: center;
-}
-.movie-rating-hats .hat-fill, .movie-rating-hats .hat-halffill, .movie-rating-hats .hat-nofill {
-  width: 25px;
-  height: 25px;
-  background-size: 100%;
-  display: block;
-}
-.movie-rating-hats .hat-nofill {
-  background-image: url("/img/hat-nofill.png");
-}
-.movie-rating-hats .hat-fill {
-  background-image: url("/img/hat-fill.png");
-}
-.movie-rating-hats .hat-halffill {
-  background-image: url("/img/hat-halffill.png");
 }
 
 :root {

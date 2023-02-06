@@ -94,21 +94,30 @@
 		margin-top: 3rem;
 	}
 
-	.movie-rating {
-		text-align: center;
-		font-weight: bold;
-		font-size: 1.3rem;
-		color: $c-red-light;
-		grid-column: 1;
-		grid-row: 2;
-		display: flexbox;
-	}
-
-	.movie-rating-img {
-		grid-column: 1;
-		grid-row: 2;
-		margin-top: -0.7rem;
-		margin-left: 55%;
+	.movie-rating-hats {
+		list-style-type: none;
+		display: flex;
+		padding-bottom: 0.2rem;
+		justify-content: center;
+		
+		.hat-fill, .hat-halffill, .hat-nofill {
+			width: 25px;
+			height: 25px;
+			background-size: 100%;
+			display: block;
+		}
+	
+		.hat-nofill {
+			background-image: url("/img/hat-nofill.png");
+		}
+	
+		.hat-fill {
+			background-image: url("/img/hat-fill.png");
+		}
+	
+		.hat-halffill {
+			background-image: url("/img/hat-halffill.png");
+		}
 	}
 
 	.movie-showtimes {
