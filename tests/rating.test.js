@@ -13,7 +13,7 @@ function getMockRating(mockList, imdbRating) {
 
 		mockList.forEach((review) => (mockRating += review.attributes.rating));
 
-		return (mockRating /= mockReviews1.length);
+		return (mockRating /= mockList.length);
 
 	} else {
 
