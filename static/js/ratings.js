@@ -1,18 +1,19 @@
 async function getRating() {
     const id = window.location.href.slice(window.location.href.lastIndexOf("/") + 1);
     const res = await fetch(`/api/movies/${id}/rating`);
-    const rating = await res.json();
+    const data = await res.json();
+    const rating = data.rating;
     
-    if (rating.rating !== "API Error") {
+    if (rating !== "API Error") {
 
         for (let i=0; i<5; i++) {
 
             let ul = document.querySelector(".movie-rating-hats");
             let li = document.createElement("li");
             
-            if (i < rating.rating) {
+            if (i < rating) {
             
-                if ( i == Math.floor(rating.rating)) {
+                if ( i == Math.floor(rating)) {
             
                     li.classList.add("hat-halffill");
             
