@@ -576,7 +576,7 @@ header .header-list.open li img {
   max-width: 900px;
   margin-inline: auto;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 275px 1fr;
 }
 @media (max-width: 750px) {
   .movie-details {
@@ -1570,6 +1570,76 @@ input[type=password]:focus {
 .error-page img {
   margin: 0 auto;
   max-width: 500px;
+}
+
+.add-review {
+  grid-column: 1 !important;
+  grid-row: 2;
+}
+@media (max-width: 750px) {
+  .add-review {
+    width: 80%;
+    margin: auto;
+  }
+  .add-review .add-review-content {
+    width: 80%;
+    margin: auto;
+  }
+}
+.add-review .add-review-button {
+  display: block;
+  margin: 0.5em auto;
+  background-color: #fff3b0;
+  color: #9e2a2b;
+  border: 0;
+  padding: 0.5em 1.5em;
+  font-weight: bold;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 1.5em;
+}
+.add-review .add-review-button:hover {
+  background-color: #e3d582;
+  cursor: pointer;
+}
+.add-review .clicked {
+  background-color: #e3d582;
+}
+.add-review .add-review-content {
+  background-color: #fff3b0;
+  color: #9e2a2b;
+  font-weight: bold;
+  padding: 1em;
+  border-radius: 1.5em;
+  display: none;
+  padding-bottom: 2.5em;
+}
+.add-review .show {
+  display: block;
+}
+.add-review .hide {
+  display: none;
+}
+.add-review form input {
+  margin: 0.25em 0;
+}
+.add-review input#name {
+  width: 50%;
+}
+.add-review textarea {
+  min-width: 100%;
+  max-width: 100%;
+}
+.add-review .submit-review {
+  padding: 0.25em 0.5em;
+  background-color: #9e2a2b;
+  color: #edf2f4;
+  margin-left: auto;
+  font-weight: bold;
+  margin-right: 0;
+  border-radius: 1em;
+  float: right;
+  border-color: #edf2f4;
 }
 
 :root {

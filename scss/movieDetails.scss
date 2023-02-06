@@ -2,7 +2,7 @@
 	max-width: 900px;
 	margin-inline: auto;
 	display: grid;
-	grid-template-columns: 200px 1fr;
+	grid-template-columns: 275px 1fr;
 
 	@media (max-width: $bp-medium) {
 		grid-template-columns: 100%;
