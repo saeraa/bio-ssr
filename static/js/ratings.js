@@ -3,7 +3,8 @@ async function getRating() {
     const res = await fetch(`/api/movies/${id}/rating`);
     const data = await res.json();
     const rating = data.rating;
-    
+    const container = document.querySelector("#rating-container-element");
+
     if (rating !== "API Error") {
 
         for (let i=0; i<5; i++) {
@@ -28,6 +29,8 @@ async function getRating() {
 
             ul.appendChild(li);
         }
+
+        container.append(ul);
     }
 };
 

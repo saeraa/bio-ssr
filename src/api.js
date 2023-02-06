@@ -14,7 +14,7 @@ apiRouter.get("/movies/:id/rating", async (req, res) => {
 	const movie = await loadMovie(id)
 	const rating = await getMovieRating(id, movie.data.attributes.imdbId);
 
-	if (rating.Response == 'False') {
+	if (rating.Response == "False") {
 		res.status(502).send({ rating: "API Error" });
 	} else {
 		res.status(200).send({ rating: rating.toFixed(1)});

@@ -651,25 +651,35 @@ header .header-list.open li img {
   margin-inline: auto;
   margin-top: 3rem;
 }
-.movie-details .movie-rating-hats {
+.movie-details #rating-container-element {
+  grid-column: 1;
+  grid-row: 2;
+}
+@media (max-width: 750px) {
+  .movie-details #rating-container-element {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+.movie-details #rating-container-element .movie-rating-hats {
   list-style-type: none;
   display: flex;
   padding-bottom: 0.2rem;
   justify-content: center;
 }
-.movie-details .movie-rating-hats .hat-fill, .movie-details .movie-rating-hats .hat-halffill, .movie-details .movie-rating-hats .hat-nofill {
+.movie-details #rating-container-element .movie-rating-hats .hat-fill, .movie-details #rating-container-element .movie-rating-hats .hat-halffill, .movie-details #rating-container-element .movie-rating-hats .hat-nofill {
   width: 25px;
   height: 25px;
   background-size: 100%;
   display: block;
 }
-.movie-details .movie-rating-hats .hat-nofill {
+.movie-details #rating-container-element .movie-rating-hats .hat-nofill {
   background-image: url("/img/hat-nofill.png");
 }
-.movie-details .movie-rating-hats .hat-fill {
+.movie-details #rating-container-element .movie-rating-hats .hat-fill {
   background-image: url("/img/hat-fill.png");
 }
-.movie-details .movie-rating-hats .hat-halffill {
+.movie-details #rating-container-element .movie-rating-hats .hat-halffill {
   background-image: url("/img/hat-halffill.png");
 }
 .movie-details .movie-showtimes {

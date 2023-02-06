@@ -94,29 +94,40 @@
 		margin-top: 3rem;
 	}
 
-	.movie-rating-hats {
-		list-style-type: none;
-		display: flex;
-		padding-bottom: 0.2rem;
-		justify-content: center;
-		
-		.hat-fill, .hat-halffill, .hat-nofill {
-			width: 25px;
-			height: 25px;
-			background-size: 100%;
-			display: block;
+	#rating-container-element {
+		grid-column: 1;
+		grid-row: 2;
+	
+		@media (max-width: $bp-medium) {
+			grid-column: 1;
+			grid-row: 2;
 		}
 	
-		.hat-nofill {
-			background-image: url("/img/hat-nofill.png");
-		}
+		.movie-rating-hats {
+			list-style-type: none;
+			display: flex;
+			padding-bottom: 0.2rem;
+			justify-content: center;	
 	
-		.hat-fill {
-			background-image: url("/img/hat-fill.png");
-		}
+
+			.hat-fill, .hat-halffill, .hat-nofill {
+				width: 25px;
+				height: 25px;
+				background-size: 100%;
+				display: block;
+			}
 	
-		.hat-halffill {
-			background-image: url("/img/hat-halffill.png");
+			.hat-nofill {
+				background-image: url("/img/hat-nofill.png");
+			}
+	
+			.hat-fill {
+				background-image: url("/img/hat-fill.png");
+			}
+	
+			.hat-halffill {
+				background-image: url("/img/hat-halffill.png");
+			}
 		}
 	}
 

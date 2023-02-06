@@ -2,19 +2,16 @@ import getMovieRating from "../src/getMovieRating.js";
 import { describe, expect, test } from "@jest/globals";
 
 function getRandom(min = 0, max = 5) {
-	return Math.floor((Math.random() * max) + min);
+	return Math.floor(Math.random() * max + min);
 }
 
 function getMockRating(mockList, imdbRating) {
-
 	if (mockList.length >= 5) {
-		
 		let mockRating = 0;
 
 		mockList.forEach((review) => (mockRating += review.attributes.rating));
 
 		return (mockRating /= mockList.length);
-
 	} else {
 
 		return imdbRating / 2;
@@ -22,19 +19,18 @@ function getMockRating(mockList, imdbRating) {
 }
 
 describe("getMovieRating()", () => {
-
 	test("more then 5 reviews", async () => {
-		const rating = await getMovieRating(0, 0, mockReviews1, imdbRating);
+		const rating = await getMovieRating(0, 0, mockReviews1, (imdbRating / 2));
 		// Just to make sure that I am really testing an array with 5 or more reviews
 		expect(mockReviews1.length).toBeGreaterThan(4);
 		expect(rating).toBe(getMockRating(mockReviews1, imdbRating));
 	});
 
 	test("less then 5 reviews", async () => {
-		const rating = await getMovieRating(0, 0, mockReviews2, imdbRating);
+		const rating = await getMovieRating(0, 0, mockReviews2, (imdbRating / 2));
 		// Just to make sure that I am really testing an array with less then 5 reviews
 		expect(mockReviews2.length).toBeLessThan(5);
-		expect(rating).toBe(getMockRating(mockReviews2, imdbRating))
+		expect(rating).toBe(getMockRating(mockReviews2, imdbRating));
 	});
 });
 
@@ -43,8 +39,7 @@ const mockReviews1 = [
 		id: 37,
 		attributes: {
 			comment: "Detta är min första recension någonsin!",
-			// Stays constant to test for null 
-			rating: null,
+			rating: getRandom(),
 			author: "MovieNoob",
 			verified: false,
 			createdAt: "2023-02-03T12:07:38.140Z",

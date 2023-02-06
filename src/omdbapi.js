@@ -6,13 +6,13 @@ export async function loadIMDBMovieRating (id, query = "&i=") {
     const res = await fetch(API_BASE + query + id);
     const data = await res.json();
 
-    if (data.Response == 'False') {
+    if (data.Response == "False") {
 
         return data;
 
     } else {
-        
-        return data.imdbRating;
+        // Because IMDB rating is 0-10 and we want a 0-5 rating, to be consistent with our own rating 
+        return data.imdbRating / 2;
     }
     
 }
