@@ -651,6 +651,21 @@ header .header-list.open li img {
   margin-inline: auto;
   margin-top: 3rem;
 }
+.movie-details .movie-rating {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #9e2a2b;
+  grid-column: 1;
+  grid-row: 2;
+  display: flexbox;
+}
+.movie-details .movie-rating-img {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: -0.7rem;
+  margin-left: 55%;
+}
 .movie-details .movie-showtimes {
   padding-bottom: 2rem;
 }
