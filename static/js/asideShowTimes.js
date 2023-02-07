@@ -85,7 +85,7 @@ function createHTML(days, dates) {
             const li = document.createElement("li");
             const a = document.createElement("a");
 
-            a.href = "./movie.html#" + days[i][j].index;
+            a.href = "/movie/" + days[i][j].attributes.movie.data.id;
             const currentDate = new Date(days[i][j].attributes.start_time);
             const hours = currentDate.getHours() - 1;
             let minutes = currentDate.getMinutes();
