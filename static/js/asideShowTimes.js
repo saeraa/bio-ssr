@@ -1,5 +1,5 @@
 async function init() {
-    let database = await fetch(window.location.origin + "/api/screenings");
+    let database = await fetch("/api/screenings");
     database =  await database.json();
     sortByTime(database);
 }
