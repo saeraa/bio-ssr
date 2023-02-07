@@ -5,9 +5,12 @@ async function getRating() {
     const data = await res.json();
     const rating = data.rating;
 
+    const pRateing = document.querySelector(".movie-rating");
     const container = document.querySelector("#rating-container-element");
     const ul = document.querySelector(".movie-rating-hats");
     
+    pRateing.innerText = rating;
+
     if (rating !== "API Error") {
     
         for (let i=0; i<5; i++) {
@@ -31,7 +34,7 @@ async function getRating() {
 
             ul.appendChild(li);
         }
-        
+
         container.append(ul);
     }
 };

@@ -661,6 +661,12 @@ header .header-list.open li img {
     grid-row: 2;
   }
 }
+.movie-details #rating-container-element .movie-rating {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #9e2a2b;
+}
 .movie-details #rating-container-element .movie-rating-hats {
   list-style-type: none;
   display: flex;
