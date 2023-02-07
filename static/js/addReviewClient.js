@@ -11,9 +11,9 @@ document
   .addEventListener("click", async (ev) => {
     ev.preventDefault();
     const movieId = window.location.href.split("/").pop();
-    const author = document.querySelectorAll("form > input")[0].value;
-    const rating = document.querySelectorAll("form > input")[1].value;
-    const comment = document.querySelector("textarea").value;
+    const author = document.querySelector("#name").value;
+    const rating = document.querySelector("#rating").value;
+    const comment = document.querySelector("#comment").value;
     addReviewContent.innerHTML = "";
     const reviewDone = document.createElement("h2");
     reviewDone.textContent = "Thank you for the review, " + author + "!";
