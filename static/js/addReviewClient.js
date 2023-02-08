@@ -113,7 +113,7 @@ document
   
     addReviewContent.innerHTML = "";
     const reviewDone = document.createElement("h2");
-    reviewDone.textContent = "Thank you for the review, " + author + "!";
+    reviewDone.textContent = "Tack för din recension " + author + "!";
     reviewDone.style.textAlign = "center";
     addReviewContent.appendChild(reviewDone);
     setTimeout(() => {
