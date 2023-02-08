@@ -1,6 +1,6 @@
 .add-review {
   grid-column: 1!important;
-  grid-row: 2;
+  grid-row: 3;
 
   @media (max-width: $bp-medium) {
     width: 80%;
@@ -60,6 +60,10 @@
 
   input#name {
     width: 50%;
+  }
+
+  input#rating {
+    width: 30%;
   }
 
   textarea {
