@@ -1608,6 +1608,7 @@ input[type=password]:focus {
   margin: 0 auto;
   max-width: 500px;
 }
+
 .add-review {
   grid-column: 1 !important;
   grid-row: 2;
@@ -1676,6 +1677,8 @@ input[type=password]:focus {
   border-radius: 1em;
   float: right;
   border-color: #edf2f4;
+}
+
 .movie-details-reviews {
   max-width: 900px;
   margin-inline: auto;
