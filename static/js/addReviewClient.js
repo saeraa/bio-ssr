@@ -82,7 +82,7 @@ document
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "Authorization": "Bearer " + sendReviewToken
+          "Authentication": "Bearer " + sendReviewToken
         },
         body: JSON.stringify({
           data: {

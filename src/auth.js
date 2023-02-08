@@ -33,7 +33,7 @@ export const login = (req, res) => {
 };
 
 export const isAuthenticated = (req, res, next) => {
-	const authHeader = req.headers.authorization;
+	const authHeader = req.headers.authentication;
 
   if (!authHeader) {
     return res.status(403).json({ error: "Forbidden" });
