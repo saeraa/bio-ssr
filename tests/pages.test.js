@@ -1,6 +1,6 @@
-import { loadMovie } from "../static/js/movies";
+import { loadMovie } from "../src/movies";
 import request from "supertest";
-import app from "../app.js";
+import app from "../src/app.js";
 
 test("hompage shows list of movies", async () => {
 	const response = await request(app)
