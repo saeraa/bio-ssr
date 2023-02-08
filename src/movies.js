@@ -24,7 +24,7 @@ export async function loadMovie(id) {
 
 export async function loadReviewsForMovie(id) {
 	const res = await axios.request({
-		url: API_BASE + "/reviews?filters[movie]=" + id,
+		url: API_BASE + `/reviews?filters[movie]=${id}&sort[createdAt]=desc&filters[verified]=true`,
 		method: "GET"
 	});
 	
