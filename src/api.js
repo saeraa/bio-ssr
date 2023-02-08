@@ -3,6 +3,8 @@ import { postReview } from "./addReviewServer.js";
 import getMovieRating from "./getMovieRating.js";
 import { loadMovie } from "./movies.js";
 import { getReviewsForMovieWithId } from "./reviewList.js";
+import loadScreenings from "./loadScreenings.js";
+import {filterScreenings} from "./filterScreenings.js";
 
 const apiRouter = express.Router();
 
@@ -34,6 +36,18 @@ apiRouter.get("/movies/:id/reviews", async (req, res) => {
 	const response = await getReviewsForMovieWithId(id, page);
 	res.status(200).json(response);
 
+});
+
+apiRouter.get("/screenings", async (req,res)=> {
+	let data;
+	let filteredScreenings;
+	try {
+		data = await loadScreenings();
+		filteredScreenings = filterScreenings(data);
+		res.json(filteredScreenings);
+	} catch(error) {
+		res.status(error.response.status).json(error);
+	}
 });
 
 export default apiRouter;
