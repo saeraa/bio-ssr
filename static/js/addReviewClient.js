@@ -1,5 +1,5 @@
 const addReviewButton = document.querySelector(".add-review-button");
-let addReviewContent = document.querySelector(".add-review-content");
+const addReviewContent = document.querySelector(".add-review-content");
 const loggedOutEl = document.querySelector(".add-review-logged-out");
 const loggedInEl = document.querySelector(".add-review-logged-in");
 
@@ -28,7 +28,8 @@ document.querySelector("#login").addEventListener("click", async () => {
       },
     }));
     if (response.status === 401) {
-       throw new Error("Invalid username or password")
+      alert("Fel lösenord eller användarnamn");
+      throw new Error("Invalid username or password");
     }
     loggedIn = true;
     loggedInEl.classList.add("show");
