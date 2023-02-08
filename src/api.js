@@ -5,16 +5,22 @@ import { loadMovie } from "./movies.js";
 import { getReviewsForMovieWithId } from "./reviewList.js";
 import loadScreenings from "./loadScreenings.js";
 import { filterScreenings } from "./filterScreenings.js";
+import { login, isAuthenticated } from "./auth.js";
 
 const apiRouter = express.Router();
+
+apiRouter.post("/token", (req, res) => { 
+	login(req, res);
+})
 
 apiRouter.get("/movies/:id", (req, res) => {
 	res.send(`movie with id of ${req.params.id}`);
 });
 
-apiRouter.post("/movies/:movieId/reviews", express.json(), async (req, res) => {
+apiRouter.post("/movies/:movieId/reviews", isAuthenticated, express.json(), async (req, res) => {
 	postReview(req, res);
 });
+
 apiRouter.get("/movies/:id/rating", async (req, res) => {
 	const id = req.params.id;
 	const movie = await loadMovie(id);
