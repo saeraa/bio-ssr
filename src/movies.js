@@ -21,3 +21,12 @@ export async function loadMovie(id) {
 		return { err };
 	}
 }
+
+export async function loadReviewsForMovie(id) {
+	const res = await axios.request({
+		url: API_BASE + "/reviews?filters[movie]=" + id,
+		method: "GET"
+	});
+	
+	return res.data.data;
+}
