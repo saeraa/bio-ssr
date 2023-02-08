@@ -67,7 +67,7 @@ function renderReview(review) {
 	for (let i = 0; i < 5; i++) {
 		const spanEl = document.createElement("span");
 		spanEl.className =
-			i <= ratingNumber ? "review-hat filled" : "review-hat nofill";
+			(i+1) <= ratingNumber ? "review-hat filled" : "review-hat nofill";
 		rating.appendChild(spanEl);
 	}
 
