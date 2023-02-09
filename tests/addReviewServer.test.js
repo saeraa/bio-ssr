@@ -21,8 +21,8 @@ const mockWrongRatingReview = {
   movie: 3,
   createdAt: new Date(),
   updatedAt: new Date(),
-  createdBy: "V3D@D",
-  updatedBy: "V3D@D",
+  createdBy: "Vedad",
+  updatedBy: "Vedad",
 };
 
 const mockWrongNameAndRatingReview = {
@@ -35,6 +35,18 @@ const mockWrongNameAndRatingReview = {
   updatedAt: new Date(),
   createdBy: "V3D@D",
   updatedBy: "V3D@D",
+};
+
+const mockEmptyReview = {
+  comment: "comment",
+  rating: "",
+  author: "",
+  verified: false,
+  movie: 3,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  createdBy: "Vedad",
+  updatedBy: "Vedad",
 };
 
 const mockCorrectReview = {
@@ -70,6 +82,14 @@ describe("Tests of the validateReview function on both correct and incorrect inp
     expect(result.message).toStrictEqual("Skriv in korrekt namn och betyg!");
     expect(result.status).toStrictEqual(422);
   });
+
+  test("No input (name, rating)", () => {
+    const result = validateReview(mockEmptyReview);
+    expect(result.validated == false).toBeTruthy();
+    expect(result.message).toStrictEqual("Skriv in korrekt namn och betyg!");
+    expect(result.status).toStrictEqual(422);
+  });
+
 
   test("Correct input (name, rating)", () => {
     const result = validateReview(mockCorrectReview);

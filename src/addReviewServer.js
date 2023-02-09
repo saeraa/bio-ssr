@@ -59,8 +59,7 @@ export function validateReview(review) {
 function checkAuthor(review) {
   const author = review.author;
   const regex = /[^a-zA-Z -]/;
-  const regex2 = /[a-zA-Z -]{3,}/;
-  if (author.match(regex) || author.match(regex2) || author.length < 2 || author.includes("  ") || author.includes("--")) {
+  if (author.match(regex) || author.length < 2 || author.includes("  ") || author.includes("--")) {
     return false;
   } else {
     return true;
