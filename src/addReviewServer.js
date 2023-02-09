@@ -14,8 +14,13 @@ export async function postReview(req, res) {
         "Content-Type": "application/json",
       },
     };
-    await fetch(API_BASE, method);
-    res.status(reviewToValidate.status).send({ data: reviewToValidate });
+    const response = await fetch(API_BASE, method);
+    //checking if for some reason the API didnt accept the post request.
+    if (response.status == 200) {
+      res.status(reviewToValidate.status).send({ data: reviewToValidate });
+    } else {
+      res.status(response.status).send({ data: reviewToValidate });
+    }
   } else {
     res.status(reviewToValidate.status).send({ data: reviewToValidate });
   }
