@@ -5,7 +5,7 @@ const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api/reviews";
 export async function postReview(req, res) {
   const review = req.body.data;
   const reviewToValidate = validateReview(review);
-  if ((reviewToValidate.validated == true)) {
+  if (reviewToValidate.validated == true) {
     const method = {
       method: "POST",
       body: JSON.stringify(req.body),
@@ -15,39 +15,46 @@ export async function postReview(req, res) {
       },
     };
     await fetch(API_BASE, method);
-    res.status(201).send({ data: reviewToValidate });
+    res.status(reviewToValidate.status).send({ data: reviewToValidate });
   } else {
-    res.status(422).send({ data: reviewToValidate });
+    res.status(reviewToValidate.status).send({ data: reviewToValidate });
   }
 }
 
-function validateReview(review) {
+export function validateReview(review) {
   if (checkAuthor(review)) {
     if (checkRating(review)) {
       return {
         validated: true,
-        message: "Thank you for the review, " + review.author + "!",
+        message: "Tack för din recension, " + review.author + "!",
+        status: 201,
       };
     } else {
       return {
         validated: false,
-        message: "The rating needs to be between 0-5!",
+        message: "Betyget behöver vara mellan 0-5!",
+        status: 422,
       };
     }
   } else if (!checkRating(review)) {
     return {
       validated: false,
-      message: "Please write a valid name and rating!",
+      message: "Skriv in korrekt namn och betyg!",
+      status: 422,
     };
   } else {
-    return { validated: false, message: "Please write a valid name!" };
+    return {
+      validated: false,
+      message: "Skriv in ett korrekt namn!",
+      status: 422,
+    };
   }
 }
 
 function checkAuthor(review) {
   const author = review.author;
   const regex = /[^a-zA-Z -]/;
-  if (author.match(regex)||author.length == 0) {
+  if (author.match(regex) || author.length == 0) {
     return false;
   } else {
     return true;
