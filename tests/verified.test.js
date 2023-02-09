@@ -6,12 +6,13 @@ const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api/";
 
 describe("Tests the API for filtering only verified reviews", () => {
 
+    // Tested both things at once to avoid calling the same functions and repeating code to mutch
     test("Tests the returned list of reviews for rating and reviews", async () => {
         // Get the number of movies
         const res = await fetch(`${API_BASE}movies`);
         const data = await res.json();
         
-        // Test lists calls for all movies
+        // Tests all movies
         for(let i=1; i<=data.data.length; i++) {
             
             const rateReviewList = await loadReviewsForMovie(i);
@@ -27,6 +28,7 @@ describe("Tests the API for filtering only verified reviews", () => {
             const checkAllReviews = await res2.json();
 
             let rateCheck = 0;
+
             checkAllReviews.data.forEach(controllReview => {
                 
                 if (controllReview.attributes.verified) {
@@ -44,11 +46,14 @@ describe("Tests the API for filtering only verified reviews", () => {
             for(let j=1; j<=reviewsList.data.meta.pagination.pageCount; j++) {
 
                 let currentPageReviews = await apiAdapter(i, j);
+
                 currentPageReviews.data.data.forEach(rev => {
 
                     expect(rev.attributes.verified).toBeTruthy();
-
-                    reviewCheck++;
+                    
+                    if (rev.attributes.verified) {
+                        reviewCheck++;
+                    }
                 })
             }
 

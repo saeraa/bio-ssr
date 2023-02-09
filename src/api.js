@@ -8,13 +8,10 @@ import { filterScreenings } from "./filterScreenings.js";
 
 const apiRouter = express.Router();
 
-apiRouter.get("/movies/:id", (req, res) => {
-	res.send(`movie with id of ${req.params.id}`);
-});
-
 apiRouter.post("/movies/:movieId/reviews", express.json(), async (req, res) => {
 	postReview(req, res);
 });
+
 apiRouter.get("/movies/:id/rating", async (req, res) => {
 	const id = req.params.id;
 	const movie = await loadMovie(id);
