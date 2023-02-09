@@ -58,8 +58,13 @@ export function validateReview(review) {
 
 function checkAuthor(review) {
   const author = review.author;
+  //I kept this because it feels like a cool idea to spin upon.
   const regex = /[^a-zåäöA-ZÅÄÖ -]/;
-  if (author.match(regex) || author.length < 2) {
+  //If author is null for some reason
+  if (author == null) {
+    return false;
+    // I left the author.length < 2, because I felt the name deserves at least two letters
+  } else if (author.match(regex) || author.length < 2) {
     return false;
   } else {
     return true;
@@ -68,7 +73,10 @@ function checkAuthor(review) {
 
 function checkRating(review) {
   const rating = review.rating;
-  if (0 <= rating && rating <= 5 && rating.length > 0) {
+  //if rating is null for some reason
+  if (rating == null) {
+    return false;
+  } else if (0 <= rating && rating <= 5 && rating.length > 0) {
     return true;
   } else {
     return false;
