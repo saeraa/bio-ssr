@@ -1,4 +1,6 @@
-# Mellankalix
+# Tomtens Biograf
+
+[Whimsical](https://whimsical.com/tomtens-api-9m4LThum8Xc2tLJEWhHF7y) (meeting notes)
 
 ## API DOCUMENTATION
 
@@ -16,7 +18,7 @@ GET: Get movie with the {id}
 
 ---
 
-###/api/movies/{id}/screenings
+### /api/movies/{id}/screenings
 
 *GET*: Get all screenings for moive with the {id}   
 
