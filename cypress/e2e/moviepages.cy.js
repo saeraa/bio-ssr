@@ -6,7 +6,6 @@ const url = "http://localhost:5080/";
 it("Check movie details and DOM elements are loaded", async () => {
 	const movieList = await loadMovies();
 
-
 	movieList.data.forEach((movie) => {
 		cy.visit(`${url}movie/${movie.id}`);
 

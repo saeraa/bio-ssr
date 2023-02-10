@@ -1,7 +1,6 @@
 import { describe, expect, test } from "@jest/globals";
 import { marked } from "marked";
-import { loadMovies } from "../src/movies.js";
-import { loadMovie } from "../src/movies.js";
+import { loadMovie, loadMovies } from "../src/movies.js";
 import request from "supertest";
 import app from "../src/app.js";
 
