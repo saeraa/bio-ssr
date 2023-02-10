@@ -13,7 +13,7 @@ submitButton.addEventListener("click", postReviewHandler);
 async function postReviewHandler() {
   const movieId = window.location.href.split("/").pop();
   const author = document.querySelector("#name").value;
-  const rating = document.querySelector("#rating").value;
+  const rating = Math.round(document.querySelector("#rating").value);
   const comment = document.querySelector("#comment").value;
   const template = addReviewContent.innerHTML;
   const response = await fetch(

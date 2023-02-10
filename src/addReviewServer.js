@@ -72,11 +72,11 @@ function checkAuthor(review) {
 }
 
 function checkRating(review) {
-  const rating = review.rating;
+  const rating = parseInt(review.rating);
   //if rating is null for some reason
   if (rating == null) {
     return false;
-  } else if (0 <= rating && rating <= 5 && rating.length > 0) {
+  } else if (0 <= rating && rating <= 5) {
     return true;
   } else {
     return false;
