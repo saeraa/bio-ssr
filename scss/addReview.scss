@@ -1,6 +1,8 @@
 .add-review {
-  grid-column: 1!important;
-  grid-row: 2;
+
+  hr {
+    margin-bottom: .5rem;
+  }
 
   @media (max-width: $bp-medium) {
     width: 80%;
@@ -68,7 +70,7 @@
   }
 
   .submit-review {
-    padding: 0.25em 0.5em;
+    padding: 0.5em 0.8em;
     background-color: $c-red-light;
     color: $c-gray-light;
     margin-left: auto;
@@ -76,6 +78,11 @@
     margin-right: 0;
     border-radius: 1em;
     float: right;
-    border-color: $c-gray-light;
+    border: none;
+    cursor: pointer;
+  }
+
+  .add-review-login {
+    @extend .submit-review;
   }
 }

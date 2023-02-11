@@ -1,18 +1,27 @@
 <script src="/js/addReviewClient.js" defer></script>
 
 <div class="add-review">
-    <button class="add-review-button">Write a review</button>
+    <button class="add-review-button">Skriv en recension</button>
     <div class="add-review-content">
       <form>
-        <label for="name">Name:</label>
+        <div class="add-review-logged-out">
+          <button type="button" id="login" class="add-review-login">Logga in</button>
+          <label for="username">Användarnamn:</label> <input type="text" id="username" autocomplete="username" /><br />
+          <label for="password">Lösenord:</label> <input type="password" id="password" autocomplete="current-password" />
+        </div>
+        <div class="add-review-logged-in hide">Du är inloggad!</div>
+          
+          <hr />
+        <label for="name">Namn:</label>
         <input type="text" id="name" name="name" /><br />
 
-        <label for="rating">Rating:</label>
+        <label for="rating">Betyg:</label>
         <input type="number" min="0" max="5" id="rating" name="rating" /><br />
 
-        <label for="comment">Write a comment: (Optional)</label><br />
+        <label for="comment">Skriv en kommentar: (Valfritt)</label><br />
         <textarea id="comment" cols="25" rows="4"></textarea>
-        <button class="submit-review">Submit review</button>
+        <p class="add-review-not-logged-warning hide">Du måste logga in först!</p>
+        <button class="submit-review">Skicka recension</button>
       </form>
     </div>
   </div>
