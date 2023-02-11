@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 const API_KEY = "6de06ef5"
 const API_BASE = "https://www.omdbapi.com/?apikey=" + API_KEY;
 

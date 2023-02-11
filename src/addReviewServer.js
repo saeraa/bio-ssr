@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api/reviews";
 
 export async function postReview(req, res) {

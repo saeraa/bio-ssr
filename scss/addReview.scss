@@ -1,7 +1,6 @@
 .add-review {
-
   hr {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 
   @media (max-width: $bp-medium) {
@@ -58,6 +57,75 @@
     input {
       margin: 0.25em 0;
     }
+    .post-review-rating-container {
+      display: flex;
+      .post-review-rating {
+        display: flex;
+        flex-direction: row-reverse;
+
+        padding-left: 0.5em;
+
+        label:not(:first-child) {
+          background-size: 100%;
+          background-image: url("/img/hat-nofill.png");
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          position: relative;
+          &:hover {
+            cursor: pointer;
+            background-image: url("/img/hat-fill.png");
+          }
+          &:hover ~ label {
+            background-image: url("/img/hat-fill.png");
+          }
+        }
+
+        input {
+          display: none;
+        }
+      }
+    }
+
+    .hat-filled {
+      background-image: url("/img/hat-fill.png") !important;
+    }
+
+    .hat-not-filled {
+      background-image: url("/img/hat-nofill.png") !important;
+    }
+    /*
+    .post-rating-list {
+      display: inline-block;
+      gap: 0.5em;
+      list-style-type: none;
+
+      .review-hat.nofill {
+        background-size: 100%;
+        background-image: url("/img/hat-nofill.png");
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+
+        &:hover {
+          cursor: pointer;
+          background-image: url("/img/hat-fill.png");
+        }
+      }
+
+      .review-hat.filled {
+        background-image: url("/img/hat-fill.png");
+        width: 25px;
+        height: 25px;
+        background-size: 100%;
+        display: inline-block;
+      }
+    }*/
+  }
+
+  label#review-comment {
+    display: block;
+    padding-bottom: 0.25em;
   }
 
   input#name {
