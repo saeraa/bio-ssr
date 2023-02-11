@@ -1,4 +1,4 @@
-let addReviewButton = document.querySelector(".add-review-button");
+const addReviewButton = document.querySelector(".add-review-button");
 const addReviewContent = document.querySelector(".add-review-content");
 
 addReviewButton.addEventListener("click", () => {
