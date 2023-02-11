@@ -1608,10 +1608,8 @@ input[type=password]:focus {
   margin: 0 auto;
   max-width: 500px;
 }
-
-.add-review {
-  grid-column: 1 !important;
-  grid-row: 3;
+.add-review hr {
+  margin-bottom: 0.5rem;
 }
 @media (max-width: 750px) {
   .add-review {
@@ -1670,8 +1668,8 @@ input[type=password]:focus {
   min-width: 100%;
   max-width: 100%;
 }
-.add-review .submit-review {
-  padding: 0.25em 0.5em;
+.add-review .submit-review, .add-review .add-review-login {
+  padding: 0.5em 0.8em;
   background-color: #9e2a2b;
   color: #edf2f4;
   margin-left: auto;
@@ -1679,9 +1677,9 @@ input[type=password]:focus {
   margin-right: 0;
   border-radius: 1em;
   float: right;
-  border-color: #edf2f4;
+  border: none;
+  cursor: pointer;
 }
-
 .movie-details-reviews {
   max-width: 900px;
   margin-inline: auto;

@@ -6,7 +6,7 @@ const apiAdapter = async (movieId, pageNumber) => {
 	try {
 		const response = await axios.request({
 			method: "GET",
-			url: `${API_BASE}?filters%5Bmovie%5D=${movieId}&pagination%5Bpage%5D=${pageNumber}&pagination%5BpageSize%5D=5&sort=createdAt`
+			url: `${API_BASE}?filters[movie]=${movieId}&pagination[page]=${pageNumber}&pagination[pageSize]=5&sort[createdAt]=desc&filters[verified]=true`
 		});
 		return response;
 	} catch (error) {
@@ -39,3 +39,4 @@ const getReviewsForMovieWithId = async (
 };
 
 export { getReviewsForMovieWithId };
+export { apiAdapter };
