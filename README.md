@@ -1,5 +1,7 @@
 # Mellankalix
 
+[Whimsical](https://whimsical.com/tomtens-api-9m4LThum8Xc2tLJEWhHF7y) (meeting notes)
+
 ## API DOCUMENTATION
 
 ### /api/screenings
