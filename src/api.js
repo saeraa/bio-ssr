@@ -15,7 +15,8 @@ apiRouter.post("/token", (req, res) => {
 
 apiRouter.post("/movies/:movieId/reviews", isAuthenticated, express.json(), async (req, res) => {
 	if (req.params.movieId === "TEST") {
-		res.status(200).json({ message: "Hi, I am a middleware testing endpoint, if you tried to post a movie try a proper ID."})
+		res.status(200).json({ message: "Hi, I am a middleware testing endpoint, if you tried to post a review try a proper ID."})
+		return;
 	};
 	postReview(req, res);
 });
