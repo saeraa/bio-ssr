@@ -3,9 +3,9 @@
 <section class="movie-details">
 	<div>
 		<h1 class="movie-title"><%= movieDetails.title %></h1>
-		<!-- <p class="movie-description"> -->
-		<%- marked(movieDetails.intro) %>
-		<!-- </p> -->
+		<p class="movie-description">
+		<%- marked.parseInline(movieDetails.intro) %>
+		</p>
 		<hr />
 		<!-- <p class="movie-genres">${genreString}</p>
 		<p class="movie-info">
