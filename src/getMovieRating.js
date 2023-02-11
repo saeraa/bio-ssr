@@ -8,8 +8,8 @@ export default async function getMovieRating(movieID, imdbID, reviewSource1 = lo
 
 	if (reviewList.length >= 5) {
 
-		for (let rate of reviewList) {
-			rating += rate.attributes.rating;
+		for (let review of reviewList) {
+			rating += review.attributes.rating;
 		}
 
 		return (rating /= reviewList.length);

@@ -2,11 +2,11 @@ import axios from "axios";
 
 const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api/reviews";
 
-const apiAdapter = async (movieId, pageNumber) => {
+const apiAdapter = async (movieId, pageNumber, pageSize = 5) => {
 	try {
 		const response = await axios.request({
 			method: "GET",
-			url: `${API_BASE}?filters[movie]=${movieId}&pagination[page]=${pageNumber}&pagination[pageSize]=5&sort[createdAt]=desc&filters[verified]=true`
+			url: `${API_BASE}?filters[movie]=${movieId}&pagination[page]=${pageNumber}&pagination[pageSize]=${pageSize}&sort[createdAt]=desc&filters[verified]=true`
 		});
 		return response;
 	} catch (error) {
