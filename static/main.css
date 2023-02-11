@@ -1608,7 +1608,6 @@ input[type=password]:focus {
   margin: 0 auto;
   max-width: 500px;
 }
-
 .add-review hr {
   margin-bottom: 0.5rem;
 }
@@ -1661,6 +1660,9 @@ input[type=password]:focus {
 }
 .add-review input#name {
   width: 50%;
+}
+.add-review input#rating {
+  width: 30%;
 }
 .add-review textarea {
   min-width: 100%;
