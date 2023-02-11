@@ -1,4 +1,5 @@
 import axios from "axios";
+import { apiAdapter } from "./reviewList.js";
 
 const API_BASE = "https://plankton-app-xhkom.ondigitalocean.app/api";
 
@@ -22,11 +23,18 @@ export async function loadMovie(id) {
 	}
 }
 
-export async function loadReviewsForMovie(id) {
-	const res = await axios.request({
-		url: API_BASE + `/reviews?filters[movie]=${id}&sort[createdAt]=desc&filters[verified]=true`,
-		method: "GET"
-	});
+export async function loadReviewsForMovie(movieId) {
+	let page = 1;
+	let pageSize = 100;
+
+	const result = await apiAdapter(movieId, page, pageSize);
+
+	for (page += page; page <= result.data.meta.pagination.pageCount; page++) {
+		
+		let res = await apiAdapter(movieId, page, pageSize);
+		
+		result.data.data = result.data.data.concat(res.data.data);
+	}
 	
-	return res.data.data;
+	return result.data.data;
 }
