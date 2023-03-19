@@ -1,5 +1,6 @@
 <script src="/js/ratings.js" ></script>
 
+
 <section class="movie-details">
 	<div>
 		<h1 class="movie-title"><%= movieDetails.title %></h1>
@@ -21,6 +22,7 @@
 		alt="<%= movieDetails.title %>"
 		class="movie-poster"
 	/>
+	<%- include('../partials/movieScreening') %>
 	<%- include('../partials/addReview') %>
 	<div id="rating-container-element">
 		<p class="movie-rating"></p>
